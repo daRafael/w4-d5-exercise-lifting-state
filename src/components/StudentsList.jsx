@@ -1,9 +1,7 @@
-import { useState } from "react";
 import "./StudentsList.css";
 import StudentCard from "./StudentCard";
 
-export default function StudentsList({ students }) {
-  const [items, setItems] = useState(students);
+export default function StudentsList({ students, deleteItem }) {
   // const [name, setName] = useState("");
 
   // const handleChange = (e) => {
@@ -16,9 +14,9 @@ export default function StudentsList({ students }) {
   //   setName("");
   // };
 
-  const deleteItem = (id) => {
+/*   const deleteItem = (id) => {
     setItems(items.filter((item) => item.id !== id));
-  };
+  }; */
 
   return (
     <div className="wrapper">
@@ -29,8 +27,8 @@ export default function StudentsList({ students }) {
         </div>
       </div> */}
       <ul>
-        {items.map((item) => (
-          <StudentCard key={item.id} student={item} deleteItem={deleteItem} />
+        {students.map((student) => (
+          <StudentCard key={student.id} student={student} deleteItem={deleteItem} />
         ))}
       </ul>
     </div>
